@@ -7,8 +7,9 @@ export const Container = styled.div`
   border-radius: 0.5rem;
   flex-direction: column;
   text-align: left;
-  width: 30%;
-  color:white
+  width: 70%;
+  color:white;
+  margin-bottom:0.5rem
 `;
 
 export const Header = styled.header`

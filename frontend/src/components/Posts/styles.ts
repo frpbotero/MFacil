@@ -1,13 +1,14 @@
 import styled from "styled-components";
 
 export const Container = styled.body`
-    width:30vw;
+    width:40vw;
     display:flex;
-    align-items:top;
+    flex-direction:column
    
     
 
 `
+
 export const User = styled.img`
         height:3rem;
         margin-right:0.5rem;
@@ -28,7 +29,9 @@ export const Header=styled.header`
 `
 
 export const Post=styled.div`
-    
+width:40vw;
+    display:flex;
+    align-items:top;
 
 `
 export const Content=styled.main`
@@ -85,7 +88,8 @@ textarea{
     border: 1px solid #ccc;
     border-radius:1rem;
     resize: none;
-    padding: 0.8rem 0.5em
+    padding: 0.8rem 0.5em;
+    margin-bottom:0.5rem
 }
 textarea:focus{
     
@@ -97,5 +101,11 @@ div{
     justify-content:flex-end
 }
 
+
+`
+export const sectionComments = styled.div`
+display:flex;
+flex-direction:column;
+align-items:flex-end
 
 `

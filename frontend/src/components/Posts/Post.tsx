@@ -1,19 +1,30 @@
 import { useState } from "react";
 import * as S from "./styles";
+import { Comments } from "../Comments/Comments";
 
 export function Post(){
     const [comment,setComment]=useState('')
     const [replie,setReplie]=useState(false)
+    const [viewComment,setViewComment]=useState(false)
+    const [like,setLike]=useState(0)
+
     function handleReplie(){
         setReplie(!replie)
     }
+    function handleViewComment(){
+        setViewComment(!viewComment)
+    }
 
+    function handleLike(){
+        // setLike(!like)
+    }
 
     return(
-        <S.Container>     
+        <S.Container> 
+            <S.Post>
             <S.User src="https://avatars.githubusercontent.com/u/59348629?v=4" alt="Felipe Botero" />  
             
-            <S.Post>
+            <div>
             
                 <S.Content>
                 <S.Header>
@@ -24,11 +35,11 @@ export function Post(){
                 </S.Content>
                 <S.Footer>
                 <div>
-                    <p>Gostei (4)</p> <p>3 d</p>
+                    <p>Gostei ({like})</p> <p>3 d</p>
                 </div>
                 <div>
 
-                <button>Gostei</button><span><button>Comentários</button></span><button onClick={handleReplie}>Responder</button>  
+                <button onClick={e=>setLike(like+1)}>Gostei</button><span><button onClick={handleViewComment}>Comentários</button></span><button onClick={handleReplie}>Responder</button>  
                 </div>
 
                 <S.spaceResponse>
@@ -42,8 +53,16 @@ export function Post(){
 
             </S.Footer>
             
-            </S.Post>
+            </div>
             
+            
+            
+            </S.Post>
+            {viewComment?<S.sectionComments>
+                <Comments/>
+                <Comments/>
+                <Comments/>
+            </S.sectionComments>:""}
             
             
         </S.Container>
