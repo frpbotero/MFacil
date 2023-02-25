@@ -28,20 +28,20 @@ export function Post(){
                 </div>
                 <div>
 
-                <button>Gostei</button>|<button onClick={handleReplie}>Responder</button>
+                <button>Gostei</button><span><button>Comentários</button></span><button onClick={handleReplie}>Responder</button>  
                 </div>
 
-
-                
-                
-            </S.Footer>
-            <S.spaceResponse>
+                <S.spaceResponse>
                 {replie? <form action="">
                     <textarea name="" id="contentComments" onChange={e=>setComment(e.target.value)}/>
-                    {comment!==""? <button>Enviar</button>:""}
+                    {comment!==""? <div><button>Enviar</button></div>:""}
                 </form>:""}
 
             </S.spaceResponse>
+
+
+            </S.Footer>
+            
             </S.Post>
             
             

@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const Container = styled.body`
-    width:30%;
+    width:30vw;
     display:flex;
     align-items:top;
    
@@ -44,6 +44,7 @@ export const Footer=styled.footer`
     display:flex;
     flex-direction:column;
     
+    
 
     button{
         background:transparent;
@@ -54,7 +55,8 @@ export const Footer=styled.footer`
         cursor:pointer;
         margin-top:0.5rem;
         color:#a8a8a8;
-        trasition: all 0.5s
+        trasition: all 0.5s;
+        margin-bottom:0.5rem
     }
     button:hover{
         background:#a8a8a8;
@@ -72,19 +74,28 @@ export const Footer=styled.footer`
 `
 export const Botoes = styled.div`
     display:flex
+    
 `
 export const spaceResponse = styled.div`
-
+   display:flex;
+   flex-direction:column;
+   
 textarea{
     width:100%;
-    border: 2px solid #ccc;
+    border: 1px solid #ccc;
     border-radius:1rem;
     resize: none;
-    padding: 0.8rem 1.6rem;
+    padding: 0.8rem 0.5em
 }
 textarea:focus{
-    width:100%;
+    
     border:solid transparent;
 }
+
+div{
+    display: flex;
+    justify-content:flex-end
+}
+
 
 `
