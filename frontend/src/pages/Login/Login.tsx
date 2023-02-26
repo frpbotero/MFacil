@@ -2,6 +2,8 @@
 import {Link,useNavigate} from "react-router-dom"
 import * as S from "./styles"
 
+import LoginImage from "../../assets/login.svg"
+
 export function Login(){
     const navigate = useNavigate()
 
@@ -9,11 +11,12 @@ export function Login(){
 
     return(
         <S.Container>
+            <img src={LoginImage} alt="" />
             <S.content>
                 <S.Header>
                     {/* <img src= alt="" /> */}
-                    <h2>Bem vindo a bordo!</h2>
-                    <p>vamos lá?</p>
+                    <h4>Bem vindo a bordo!</h4>
+                    <h2>MFácil</h2>
 
                 </S.Header>
                 <S.Form>

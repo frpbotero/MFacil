@@ -32,6 +32,10 @@ export const Container = styled.div`
 
 export const Logo = styled.h1`
 
+    img{
+        margin-left:1rem;
+        width:2rem
+    }
 `
 
 export const User=styled.button`
