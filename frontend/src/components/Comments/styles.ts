@@ -15,11 +15,23 @@ export const Container = styled.div`
 export const Header = styled.header`
   display: flex;
   align-items: center;
+  justify-content:space-between;
   img {
     height: 3rem;
     border-radius: 3rem;
     margin-right: 1rem;
   }
+
+    button{
+        background:transparent;
+        cursor:pointer;
+
+        img{
+          height:1.5rem;
+        }
+    }
+
+
 `;
 
 export const Content = styled.main`

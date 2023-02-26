@@ -1,6 +1,9 @@
 import { useState } from "react";
 import * as S from "./styles";
 import { Comments } from "../Comments/Comments";
+import trash from "../../assets/trash.svg"
+
+
 
 export function Post(){
     const [comment,setComment]=useState('')
@@ -28,8 +31,11 @@ export function Post(){
             
                 <S.Content>
                 <S.Header>
+                    <div>
                     <h3>Felipe Botero</h3>
                     <p>Desenvolvedor Front-end</p>
+                    </div>
+                    <button><img src={trash} alt="" /></button>
                 </S.Header>
                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed, esse! Ex quo vitae illum unde doloremque, esse officiis, a quas aliquid doloribus eius ratione deleniti sequi explicabo tenetur soluta consequuntur!
                 </S.Content>

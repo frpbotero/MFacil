@@ -18,14 +18,20 @@ export const User = styled.img`
 
 
 export const Header=styled.header`
-    display:flex
-    flex-direction:column;
+    display:flex;
     margin-bottom:0.5rem;
+    justify-content:space-between;
 
     p{
         font-weight:lighter
+    };
+    img{
+        height:1.5rem
     }
-
+    button{
+        background:transparent;
+        cursor:pointer
+    }
 `
 
 export const Post=styled.div`
