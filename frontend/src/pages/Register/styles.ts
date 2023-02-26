@@ -5,10 +5,11 @@ export const Container = styled.div`
     display:flex;
     justify-content:center;
     height:100vh;
+    align-items:center;
     
 
     img{
-        margin-top:3rem;
+        margin-top:-10rem;
         height:30rem
     }
 
@@ -32,7 +33,7 @@ export const Container = styled.div`
 
 `
 export const content=styled.div`
-    margin-top:3rem;
+margin-top:-10rem;
     height:40%;
     
     background:white;

@@ -5,10 +5,6 @@ import * as S from "./styles"
 import LoginImage from "../../assets/login.svg"
 
 export function Login(){
-    
-
-    
-
     return(
         <S.Container>
             <img src={LoginImage} alt="" />

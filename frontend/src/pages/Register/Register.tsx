@@ -5,8 +5,6 @@ import * as S from "./styles"
 import RegisterImage from "../../assets/register.svg"
 
 export function Register(){
-   
-
     return(
         <S.Container>
             <img src={RegisterImage} alt="" />
