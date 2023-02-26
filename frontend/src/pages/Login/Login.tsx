@@ -1,11 +1,11 @@
 
-import {Link,useNavigate} from "react-router-dom"
+import {Link} from "react-router-dom"
 import * as S from "./styles"
 
 import LoginImage from "../../assets/login.svg"
 
 export function Login(){
-    const navigate = useNavigate()
+    
 
     
 
@@ -40,7 +40,7 @@ export function Login(){
                 </S.Form>
                
         
-        </S.content>
+            </S.content>
         
         </S.Container>
     )

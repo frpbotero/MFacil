@@ -1,57 +1,51 @@
 
-import {useNavigate} from "react-router-dom"
+import {Link} from "react-router-dom"
+import * as S from "./styles"
+
+import RegisterImage from "../../assets/register.svg"
 
 export function Register(){
-    const navigate = useNavigate()
-
-    function login(){
-        navigate("/login")
-    }
+   
 
     return(
-        <div>
-            <div className="containerUser">
-            <div className="contentUser">    
-            <div className="contentInfoUser">
-                    {/* <img className="img1" src={back} alt="" />
-                    <img  className="img2"src={Logoregister} alt="" /> */}
-                    <h2>Vamos embarcar?</h2>
-                    <p>apenas alguns cliques e começamos</p>
+        <S.Container>
+            <img src={RegisterImage} alt="" />
+            <S.content>
+                <S.Header>
+                    
+                    <h4>Vamos embarcar?</h4>
+                    <h2>MFácil</h2>
 
-                </div>
-                <div className="contentFormUser">
-                <form >  
+                </S.Header>
+                <S.Form>
                 
-                    <div className="inputViewUser">
+                <form >  
                     
-                    <input type="text" id="name" placeholder="Nome" />
+                    <div >
+                    <input type="text" id="name" placeholder="Nome"/>
                     </div>
-                    <div className="inputViewUser">
-                    
-                    <input type="text" id="userName"placeholder="Email" />
+                    <div >
+                    <input type="email" id="userName" placeholder="Email"/>
                     </div>
-            
-                    
-                    
-                    <div className="inputViewUser">
-                    
-                    <input type="password" id="password" placeholder="Senha" />
+                    <div >
+                    <input type="password" id="password" placeholder="Password" />
                     </div>
-                    <div className="inputViewUser">
-                    
-                    <input type="password" id="passwordConfirm"placeholder="Confirmação de senha" />
+                    <div >
+                    <input type="password" id="comfirpPassword" placeholder="Confirme seu password" />
                     </div>
+                        
                     
-                    <button className="createButton">Registrar</button>
+                    <button>Sing in</button>
                 </form>
                 <p>Já tem cadastro? </p>
-                <button onClick={login}className="buttonLogin">Log in</button>
-                </div>
-                
+                <Link to="/login" >Login</Link>
+                </S.Form>
+               
         
-        </div>
+            </S.content>
         
-        </div>
-        </div>
+        </S.Container>
     )
+
+
 }
