@@ -12,22 +12,18 @@ export function ConfigUser(){
             <h2>Felipe</h2>
                 </div>
             <S.Content>
-                
-                
-                    <label htmlFor="profession">Profissão</label>
-                    <input type="text" id="profession" placeholder=""/>
-                
+                     <label htmlFor="profession">Profissão</label>
+                    <input type="text" id="profession" placeholder="Designer"/>
+                    
+                    <label htmlFor="dateNasc">Data de nascimento</label>
+                    <input type="date" id="dateNasc" />
                 
                     <label htmlFor="resume">Resumo</label>
-                    <input type="text" id="resume" placeholder=""/>
+                    <textarea id="resume" placeholder="Desenvolvo projetos..."/>
                 
                 
                     <label htmlFor="linkPortfolio">Portifólio</label>
-                    <input type="text" id="linkPortfolio" placeholder=""/>
-                
-                   
-                    <label htmlFor="profession">Profissão</label>
-                    <input type="text" id="profession" placeholder=""/>
+                    <input type="text" id="linkPortfolio" placeholder="https://medium.com/@fulado"/>
                 
                 <div>
 

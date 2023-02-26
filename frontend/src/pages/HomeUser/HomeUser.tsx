@@ -9,6 +9,4 @@ export function HomeUser(){
             <Post />
         </S.Conteiner>
     )
-
-
 }

@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 
 export const Container=styled.div`
-    background-color:gray;
+  background-color:#F3F2EF;
     width:100vw;
     height:100vh;
     display:flex;
@@ -27,14 +27,8 @@ input[type='file']{
     display: none;
 }
 label[class='file']{
-    
-
-
-  cursor: pointer;
-  
+   cursor: pointer;
 }
-
-
 `
 
 export const UserImage = styled.img`
@@ -50,19 +44,24 @@ export const UserImage = styled.img`
 export const Content = styled.div`
     display:flex;
     flex-direction:column;
+    gap:1rem;
 
-    
-    input{
-        border:2px solid purple;
+    textarea,input{
+        background-color:#ECECEC;
         padding:0.3rem;
         font-size:large;
         border-radius:0.5rem;
     }
     input:focus{
-        border:none;
+        border:2px solid purple;
         background-color:#fffff0;
-        outline:0
-        
+        outline:0 
+    }
+
+    textarea:focus{
+        border:2px solid purple;
+        background-color:#fffff0;
+        outline:0 
     }
     div{
         display:flex;
@@ -71,16 +70,17 @@ export const Content = styled.div`
     }
     button{
         width:8rem;
-        border:1px solid green;
+        border:1px solid #7a297a;
         border-radius:1rem;
         height:3rem;
         color:white;
         font-size:large;
+        background-color:#c8a2c8;
 
     }
     button:hover{
         border:none;
-        background-color:green;
+        background-color:#7a297a;
 
     }
 `
