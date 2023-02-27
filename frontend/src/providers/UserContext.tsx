@@ -3,12 +3,8 @@ import {useNavigate} from "react-router-dom"
 import { api } from "../api/api";
 import { createContext } from "react";
 
-export type GlobalContent = {
+export const UserContext = createContext({
     
-  }
-export const UserContext = createContext<GlobalContent>({
-    copy: 'Hello World', // set a default value
-setCopy: () => {},
 });
 
 
