@@ -1,5 +1,12 @@
 import mongoose from "mongoose";
 
+export interface IPost{
+    author:String;
+    content:String;
+    comments:String;
+    interactions:Array<String>
+
+}
 
 const postSchemna = new mongoose.Schema({
     author: { type: String, require: true },
@@ -8,6 +15,5 @@ const postSchemna = new mongoose.Schema({
     interactions:{ type: Array, require: true },
 })
 
-const Post = mongoose.model("User",postSchemna)
+export const Post = mongoose.model("User",postSchemna)
 
-module.exports(Post)
