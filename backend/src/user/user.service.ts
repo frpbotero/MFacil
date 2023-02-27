@@ -5,7 +5,7 @@ import mongoose from "mongoose"
 
 function findAllUser(){
     return User.find().select(
-        "_id name email profession"
+        "_id name email profession linkPortfolio"
     )
 }
 function findByIdUser(id:string){
