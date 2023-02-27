@@ -20,7 +20,7 @@ function App() {
             <Route  path="/"index  element={<Home/>}/>
             <Route  path="/login" element={<Login/>}/>
             <Route  path="/register" element={<Register/>}/>
-            <Route  path="/user" element={<HomeUser/>}/>
+            <Route  path="/feed" element={<HomeUser/>}/>
             <Route  path="/handle" element={<ConfigUser/>}/>
           </Routes>
         </div>
