@@ -15,5 +15,5 @@ const postSchemna = new mongoose.Schema({
     interactions:{ type: Array, require: true },
 })
 
-export const Post = mongoose.model("User",postSchemna)
+export const Post = mongoose.model("Post",postSchemna)
 

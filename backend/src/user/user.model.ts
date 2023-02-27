@@ -12,7 +12,7 @@ export interface Iuser{
 }
 
 
-const userSchema = new mongoose.Schema<Iuser>({
+const userSchema = new mongoose.Schema({
     name: { type: String, require: true },
     profession:{ type: String, require: true },
     dateNasc:{ type: String, require: true },
@@ -23,6 +23,6 @@ const userSchema = new mongoose.Schema<Iuser>({
     createdAt:{ type: String, require: true }
 })
 
-export const User = mongoose.model<Iuser>("User",userSchema)
+export const User = mongoose.model("User",userSchema)
 
 

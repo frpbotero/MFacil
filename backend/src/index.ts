@@ -5,6 +5,7 @@ import helmet from "helmet"; //
 import "dotenv/config"
 import { connect } from 'mongoose';
 import userRoutes from "./user/user.route"
+import postRoutes from "./post/post.route"
 
 
 
@@ -22,6 +23,7 @@ async function main(){
     app.use(helmet())
 
     app.use("/user",userRoutes)
+    app.use("/post",postRoutes)
 
 
 }
