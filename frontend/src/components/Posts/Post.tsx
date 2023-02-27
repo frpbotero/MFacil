@@ -21,11 +21,12 @@ export function Post(){
     function handleLike(){
         // setLike(!like)
     }
-
+    
     return(
         <S.Container> 
+            
             <S.Post>
-            <S.User src="https://avatars.githubusercontent.com/u/59348629?v=4" alt="Felipe Botero" />  
+            <S.User src="https://avatars.githubusercontent.com/u/59348629?v=4" alt="Felipe Botero" />
             
             <div>
             

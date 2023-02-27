@@ -8,6 +8,8 @@
         |> Armazenamento de imagem de usuario
 
 \*Frontend
+[ ] Modal para mostrar dados de outro usuario ao cliclar sobre a foto do post.
+[ ] Passar id do usuario logado no post e nos comments
 
 \*Plus
 
