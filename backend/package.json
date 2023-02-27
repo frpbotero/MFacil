@@ -4,7 +4,7 @@
   "description": "Plataforma de Post",
   "main": "index.js",
   "scripts": {
-    "dev": "ts-node-dev --pretty --inspect --transpile-only --ignore-watch node_modules --respawn ./src/index.ts"
+    "dev": "ts-node-dev --pretty --transpile-only --ignore-watch node_modules --respawn ./src/index.ts"
   },
   "repository": {
     "type": "git",
@@ -21,7 +21,8 @@
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
     "helmet": "^6.0.1",
-    "mongoose": "^6.10.0"
+    "mongoose": "^6.10.0",
+    "package-name": "^0.1.0"
   },
   "devDependencies": {
     "@types/cors": "^2.8.13",

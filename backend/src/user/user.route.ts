@@ -1,12 +1,12 @@
-import express,{Router}from "express"
-import {findAll,findById,create,updateById,deleteByID,} from "./user.controller"
+import express from "express"
+import controller from "./user.controller"
 
-const userRouter = Router()
+const router = express.Router()
 
-userRouter.get("/",findAll)
-userRouter.get("/:id",findById)
-userRouter.post("/",create)
-userRouter.put("/:id",updateById)
-userRouter.delete("/:id",deleteByID)
+router.get("/",controller.findAll)
+router.get("/:id",controller.findById)
+router.post("/",controller.create)
+router.put("/:id",controller.updateById)
+router.delete("/:id",controller.deleteByID)
 
-export default userRouter
+export = router

@@ -1,30 +1,37 @@
-import {findAllUser,findByIdUser, createUser, updateUser, deleteUser} from "./user.service"
+import service from "./user.service"
 
-export async function findAll(req,res){
-    const users = await findAllUser()
+async function findAll(req,res){
+    const users = await service.findAllUser()
     res.send(users)
 }
-export async function findById(req,res){
+async function findById(req,res){
     //criar validação do ID
     const id = req.params
-    const user = await findByIdUser(id)
+    const user = await service.findByIdUser(id)
     res.send(user)
 }
-export async function create(req,res){
+async function create(req,res){
     const body = req.body
-    const user = await createUser(body)
+    const user = await service.createUser(body)
     res.send(user)
 }
-export async function updateById(req,res){
+ async function updateById(req,res){
         //criar validação do ID
     const id = req.params
     const body = req.body
-    const user = await updateUser(id,body)
+    const user = await service.updateUser(id,body)
     res.send(user)
 }
-export async function deleteByID(req,res){
+async function deleteByID(req,res){
         //criar validação do ID
     const id = req.params
-    await deleteUser(id)
+    await service.deleteUser(id)
     res.send({message:"User deleted"})
+}
+export default {
+    findAll,
+    findById,
+    create,
+    updateById,
+    deleteByID,
 }
