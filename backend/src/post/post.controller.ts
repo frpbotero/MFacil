@@ -26,3 +26,10 @@ async function deleteByID(req,res){
     await service.deletePost(id)
     res.send({message:"Post deleted"})
 }
+export default {
+    findAll,
+    findById,
+    create,
+    updateById,
+    deleteByID,
+}
