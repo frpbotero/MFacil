@@ -18,9 +18,7 @@ export function Post(){
         setViewComment(!viewComment)
     }
 
-    function handleLike(){
-        // setLike(!like)
-    }
+   
     
     return(
         <S.Container> 

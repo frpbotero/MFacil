@@ -3,8 +3,23 @@ import {Link} from "react-router-dom"
 import * as S from "./styles"
 
 import LoginImage from "../../assets/login.svg"
+import { useState } from "react"
+
+
+
 
 export function Login(){
+    const[email,setEmail]=useState<String>()
+    const[password,setPassword]=useState<String>()
+
+
+    function ApiLogin(event:any){
+        event.preventDefault()
+        console.log(email)
+        console.log(password)
+    }
+
+
     return(
         <S.Container>
             <img src={LoginImage} alt="" />
@@ -21,15 +36,15 @@ export function Login(){
                     
                     <div className="inputView">
                    
-                    <input type="email" id="userName" placeholder=" Email"/>
+                    <input type="email"id="userName" placeholder=" Email" onChange={e=>setEmail(e.target.value)}/>
                     </div>
                     <div className="inputView">
                     
-                    <input type="password" id="password" placeholder="Password" />
+                    <input type="password" id="password" placeholder="Password" onChange={e=>setPassword(e.target.value)}/>
                     </div>
                         
                     
-                    <button>Log in</button>
+                    <button onClick={ApiLogin}>Log in</button>
                 </form>
                 <p>Ainda não tem cadastro? </p>
                 <Link to="/register" >Registrar</Link>
