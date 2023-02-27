@@ -12,6 +12,10 @@ export function Login(){
     const[email,setEmail]=useState<String>()
     const[password,setPassword]=useState<String>()
 
+    const payload={
+        email:email,
+        password:password
+    }
 
     function ApiLogin(event:any){
         event.preventDefault()
