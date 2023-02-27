@@ -1,19 +1,14 @@
-import * as dotenv from "dotenv";
-import express from "express";
+import app from "./app"
 import cors from "cors";
-import helmet from "helmet";
-
-dotenv.config();
-
+import helmet from "helmet"; //
+import "dotenv/config"
 
 
-
-
-const app = express();
+const PORT = process.env.PORT || process.env.LOCAL_PORT
 
 app.use(helmet())
 app.use(cors())
-app.use(express.json())
+
 
 
 app.get("/",(req,res)=>{
@@ -22,4 +17,4 @@ app.get("/",(req,res)=>{
 
 
 
-app.listen(3333,()=>console.log(`Server is running on port 3333`))
+app.listen(PORT,()=>console.log(`Server is running on port ${PORT}`))
