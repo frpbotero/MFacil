@@ -17,7 +17,7 @@ const AppRoutes = () => {
             <Route  path="/register" element={<Register/>}/>
             <Route  path="/feed" element={<HomeUser/>}/>
             <Route  path="/handle" element={<ConfigUser/>}/>
-      <Route
+      {/* <Route
         path="/feed"
         element={
           <ProtectedRoutes>
@@ -28,7 +28,7 @@ const AppRoutes = () => {
           </ProtectedRoutes>
         }
       />
-      <Route path="*" element={<NotFoundPage />} />
+      <Route path="*" element={<NotFoundPage />} /> */}
     </Routes>
   );
 };

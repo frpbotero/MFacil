@@ -2,6 +2,7 @@ import { useState } from "react";
 import * as S from "./styles";
 import { Comments } from "../Comments/Comments";
 import trash from "../../assets/trash.svg"
+import { apiService } from "../../api/api";
 
 
 
@@ -18,25 +19,27 @@ export function Post() {
         setViewComment(!viewComment)
     }
 
+    async function deletePost(id:any){
+        await apiService.post.deleteURL(id)
+        
+    }
+
     return (
         <S.Container>
-            <div>
-
-                {/* Abrir modal para novo post */}
-                <button>Novo Post</button>
-            </div>
+           
             <S.Post>
-                <S.User src="https://avatars.githubusercontent.com/u/59348629?v=4" alt="Felipe Botero" />
+               
 
                 <div>
 
                     <S.Content>
                         <S.Header>
                             <div>
+                            <S.User src="https://avatars.githubusercontent.com/u/59348629?v=4" alt="Felipe Botero" />
                                 <h3>Felipe Botero</h3>
                                 <p>Desenvolvedor Front-end</p>
                             </div>
-                            <button><img src={trash} alt="" /></button>
+                            <button onClick={deletePost}><img className="trash"src={trash} alt="" /></button>
                         </S.Header>
                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed, esse! Ex quo vitae illum unde doloremque, esse officiis, a quas aliquid doloribus eius ratione deleniti sequi explicabo tenetur soluta consequuntur!
                     </S.Content>
@@ -65,7 +68,8 @@ export function Post() {
 
 
             </S.Post>
-            {viewComment ? <S.sectionComments>
+            {viewComment ? <S.sectionComments> 
+                {/* se tiver comentario aparece senao fica um <></> */}
                 <Comments />
                 <Comments />
                 <Comments />

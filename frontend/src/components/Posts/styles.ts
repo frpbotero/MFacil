@@ -10,7 +10,7 @@ export const Container = styled.body`
 `
 
 export const User = styled.img`
-        height:3rem;
+        height:4rem;
         margin-right:0.5rem;
         border-radius:3rem
     
@@ -25,11 +25,14 @@ export const Header=styled.header`
     p{
         font-weight:lighter
     };
-    img{
+    img[class='trash']{
         height:1.5rem
     }
     button{
         background:transparent;
+        display:flex;
+        align-items:top;
+        padding-top:1rem;
         cursor:pointer
     }
 `
