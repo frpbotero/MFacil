@@ -106,7 +106,7 @@ async function create(req:Request,res:Response){
                 _id: user._id,
                 name: user.name,
                 email: user.email,
-                access_token: user.access_token,
+                access_token: access_token,
             });
 
         } catch (err) {
@@ -141,4 +141,5 @@ export default {
     create,
     updateById,
     deleteByID,
+    login
 }

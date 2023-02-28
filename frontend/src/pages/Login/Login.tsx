@@ -1,27 +1,49 @@
 
-import {Link} from "react-router-dom"
 import * as S from "./styles"
 
 import LoginImage from "../../assets/login.svg"
 import { useState } from "react"
-
+import { apiService } from "../../api/api"
+import { Link, useNavigate } from "react-router-dom"
 
 
 
 export function Login(){
-    const[email,setEmail]=useState<String>()
-    const[password,setPassword]=useState<String>()
+    const[email,setEmail]=useState<String>("")
+    const[password,setPassword]=useState<String>("")
+    const [userInfo,setUserInfo]=useState()
 
-    const payload={
-        email:email,
-        password:password
+    interface IUser{
+        email:String,
+        password:String
     }
+    
+    const navigate = useNavigate()
 
-    function ApiLogin(event:any){
+    async function loginUser(event:any){
         event.preventDefault()
-        console.log(email)
-        console.log(password)
+
+        const payload:IUser={
+            email:email,
+            password:password
+        }
+        await apiService.user.conectUrl(payload)
+        .then((response:any)=>{
+            const data = response.data
+
+            setUserInfo(data)
+        }).catch((e:Error)=>{
+            console.log(e)
+        })
+             
+            localStorage.setItem("user",JSON.stringify(userInfo))
+            navigate("/feed")
+            window.location.href=window.location.href
+
+        
+        
     }
+    
 
 
     return(
@@ -48,7 +70,7 @@ export function Login(){
                     </div>
                         
                     
-                    <button onClick={ApiLogin}>Log in</button>
+                    <button onClick={loginUser}>Log in</button>
                 </form>
                 <p>Ainda não tem cadastro? </p>
                 <Link to="/register" >Registrar</Link>

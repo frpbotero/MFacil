@@ -1,4 +1,4 @@
-import {Iuser, User} from "./user.model"
+import User,{Iuser} from "./user.model"
 import mongoose from "mongoose"
 
 

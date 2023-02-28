@@ -45,7 +45,7 @@ const User:Schema = new mongoose.Schema({
     },
     access_token: {
         type: String,
-        required: true,
+        
     },
     createdAt:{ 
         type: String, 

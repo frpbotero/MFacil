@@ -1,14 +1,14 @@
 export type Tuser = {
     id?:String;
-    name:String;
+    name?:String;
     profession?:String;
     dateNasc?:String;
     resume?:String;
     linkPortfolio?:String;
     email:String;
     password:String;
-    confirmPassword:String;
-    createdAt:Date
+    confirmPassword?:String;
+    createdAt?:Date
 }
 
 export type Tcomment={

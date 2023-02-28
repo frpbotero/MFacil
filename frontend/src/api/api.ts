@@ -26,6 +26,9 @@ export const apiService = {
         deleteURL:function(id:any){
             return api.delete<any>("/user/"+id)
         },
+        conectUrl: function (body:Tuser) {
+            return api.post("/user/login",body)
+          },
 
     },
     post:{
