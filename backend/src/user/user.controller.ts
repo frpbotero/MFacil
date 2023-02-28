@@ -65,7 +65,8 @@ async function create(req:Request,res:Response){
     const salt = await bcrypt.genSalt(12);
     const passwordHash = await bcrypt.hash(password, salt);
 
-    const newUser = await new User({
+
+    const newUser =  new User({
       name:name,
       email:email,
       password: passwordHash,
@@ -79,39 +80,46 @@ async function create(req:Request,res:Response){
 }
 
   async function login(req:Request,res:Response){
+    
       try {
-            const { email, password } = req.body;
+            const { email, password:passBody } = req.body;
 
-            if (!email || !password) return res.status(400).json({ message: "Missing Data" });
+            if (!email || !passBody) return res.status(400).json({ message: "Erro nos dados!" });
 
             const user = await User.findOne({ email }).exec();
 
-            if (!user) return res.status(401).json({ message: "Email or Password is Wrong!" })
+            console.debug(email)
 
-            const isPasswordValid = await bcrypt.compare(password, user.password);
+            if (!user) return res.status(401).json({ message: "Email ou senha incorreto!" })
 
-            if (!isPasswordValid) return res.status(401).json({ message: "Email or Password is Wrong!" })
+            await bcrypt.compare(passBody, user.password)
+
+            // if (!isPasswordValid) return res.status(401).json({ message: "A senha inserida não confere!" })
 
             const secret = process.env.SECRET;
-            const access_token = await sign(
+            const access_token =  sign(
               {
-                id: user._id
+                
               },
               secret,{
                 expiresIn: auth.expires
               }
             );
 
-            return res.status(200).json({
-                _id: user._id,
-                name: user.name,
-                email: user.email,
+            res.status(200).json({
+                id: user._id,
                 access_token: access_token,
-            });
+            })
+            
 
         } catch (err) {
-            return res.status(500).json({ message: "Internal Server Error" })
+          console.log(err);
+
+          res.status(500).json({
+            message: "Aconteceu algo no servidor, tente novamente mais tarde.",
+          });
         }
+        
     }
   
 

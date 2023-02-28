@@ -11,7 +11,7 @@ import { Link, useNavigate } from "react-router-dom"
 export function Login(){
     const[email,setEmail]=useState<String>("")
     const[password,setPassword]=useState<String>("")
-    const [userInfo,setUserInfo]=useState()
+    const [userInfo,setUserInfo]=useState("null")
 
     interface IUser{
         email:String,
@@ -27,18 +27,24 @@ export function Login(){
             email:email,
             password:password
         }
+        // ---
         await apiService.user.conectUrl(payload)
         .then((response:any)=>{
-            const data = response.data
+            console.log(response.data)
 
-            setUserInfo(data)
+             setUserInfo(response.data)
+
+            
         }).catch((e:Error)=>{
             console.log(e)
         })
-             
-            localStorage.setItem("user",JSON.stringify(userInfo))
-            navigate("/feed")
-            window.location.href=window.location.href
+        
+        //  ----    
+
+        console.log(userInfo)
+        localStorage.setItem("user",JSON.stringify(userInfo))
+        // navigate("/feed")
+       
 
         
         

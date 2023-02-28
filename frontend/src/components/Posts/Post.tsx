@@ -14,12 +14,10 @@ interface Icomment{
 }
 
 const getdate:any = localStorage.getItem("user")
-const userLocal = JSON.parse(getdate)
-
-
 
 export function Post({author,content,comment,interations,idPost,refreshPost}:any) {
-    console.log()
+    const userLocal = JSON.parse(getdate)
+    
     const [contentComment, setcontentComment] = useState('')
     const [replie, setReplie] = useState(false)
     const [viewComment, setViewComment] = useState(false)
@@ -35,6 +33,10 @@ export function Post({author,content,comment,interations,idPost,refreshPost}:any
     }
 
     async function deletePost(){
+        
+
+
+
         const request= await apiService.post.deleteURL(idPost)
 
         if (request.status == 200) {

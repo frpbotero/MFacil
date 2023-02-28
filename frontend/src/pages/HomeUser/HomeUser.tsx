@@ -2,9 +2,7 @@ import { useEffect, useState } from "react";
 import { Post } from "../../components/Posts/Post";
 import * as S from "./styles"
 import { apiService } from "../../api/api";
-
-
-
+import { useNavigate } from "react-router-dom";
 
 interface Post{
     _id:String;
@@ -18,15 +16,32 @@ const local:any = localStorage.getItem("user")
 const user = JSON.parse(local)
 
 export function HomeUser(){
+    
     const [post,setPost]=useState('')
     const [posts,setPosts]=useState<Post[]>([])
+   
+  
+    const navigate = useNavigate()
 
-    const payload={
-        author:user.id,
-        content:post
+    async function verifyUser(){
+        if(!user||user==undefined||user=="null"){
+            navigate("/login")
+        }else{
+            
+            // const request = await API.users.readById(user.id,user.token)
+            // const data = await request.json()
+            // setUserInfo(data)
+        }
     }
 
+
+    
+
     async function createPost(){
+        const payload={
+            author:user.id,
+            content:post
+        }
         await apiService.post.createURL(payload)
         .then(response=>{
             const data = response.data
@@ -50,7 +65,9 @@ export function HomeUser(){
     
     
     useEffect(()=>{
+        verifyUser()
         getPost()
+        
     },[])
 
     

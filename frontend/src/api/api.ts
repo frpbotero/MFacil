@@ -8,6 +8,14 @@ const api = axios.create({
     }
 })
 
+// const apiLogin = axios.create({
+//     baseURL:"http://localhost:3333/",
+//     headers:{
+//         "Content-Type":"application/json",
+//         'Authorization':`Bearer ${token}`
+//     }
+// })
+
 export const apiService = {
     user:{
         readAllURL:function(){

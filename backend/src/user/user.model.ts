@@ -8,8 +8,8 @@ export interface Iuser extends Document{
     linkPortfolio?:string;
     email:string;
     password:string;
-    createdAt:String
-    access_token?: string;
+    createdAt:string
+    access_token?:string;
 }
 
 
