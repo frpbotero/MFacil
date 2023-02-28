@@ -1,21 +1,22 @@
 export type Tuser = {
-    id?:string;
-    name:string;
-    profession:string;
-    dateNasc:string;
-    resume:string;
-    linkPortfolio:string;
-    email:string;
-    password:string;
-    createdAt:String
+    id?:String;
+    name:String;
+    profession?:String;
+    dateNasc?:String;
+    resume?:String;
+    linkPortfolio?:String;
+    email:String;
+    password:String;
+    confirmPassword:String;
+    createdAt:Date
 }
 
 export type Tcomment={
-    id?:string;
-    author:string;
-    post:string;
-    content:string;
-    interactions:Array<string>
+    id?:String;
+    author:String;
+    post:String;
+    content:String;
+    interactions:Array<String>
 }
 export type Tpost={
     author:String;

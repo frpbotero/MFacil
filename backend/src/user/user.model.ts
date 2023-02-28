@@ -2,10 +2,10 @@ import mongoose from "mongoose";
 
 export interface Iuser{
     name:string;
-    profession:string;
-    dateNasc:string;
-    resume:string;
-    linkPortfolio:string;
+    profession ?:string;
+    dateNasc?:string;
+    resume?:string;
+    linkPortfolio?:string;
     email:string;
     password:string;
     createdAt:String

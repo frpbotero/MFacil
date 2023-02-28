@@ -1,9 +1,16 @@
 
 import {Link} from "react-router-dom"
 import * as S from "./styles"
+import {useNavigate} from "react-router-dom"
 
 import RegisterImage from "../../assets/register.svg"
 import { useState } from "react"
+import { apiService } from "../../api/api"
+import { Tuser } from "../../types/types"
+
+
+
+
 
 export function Register(){
     
@@ -12,17 +19,43 @@ export function Register(){
        const [password,setPassword]=useState<String>("")
        const [confirmPassword,setConfirmPassword]=useState<String>("")
 
-    const payload = {
-        name:name,
-        email:email,
-        password:password,
-        confirmPassword:confirmPassword
-    }
 
+       const navigate = useNavigate()
+    
+    function ValidarEmail (email:any) {
+        var emailPattern =  /^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$/;
+         return emailPattern.test(email); 
+      }
+      const nowDate = new Date()
 
-    function registerUser(event:any){
+    async function registerUser(event:any){
         event.preventDefault()
+          const payload:Tuser = {
+            name:name,
+            email:email,
+            password:password,
+            createdAt:nowDate,
+            confirmPassword:confirmPassword
+        }
+        
         console.log(payload)
+
+        if(ValidarEmail(payload.email)){
+            const request = await apiService.user.createURL(payload)
+            // const data = await request.json()
+            if(request.status==200){
+               alert("Usuario criado com sucesso!")
+                
+                navigate("/feed")
+                window.location.href=window.location.href
+            }else{
+                alert("Aconteceu algo de errado!")
+            }
+        }else{
+           alert("Favor inserir um email valído!")
+        }
+
+            
     }
 
 

@@ -3,7 +3,7 @@ import cors from "cors";
 import helmet from "helmet"; //
 
 import "dotenv/config"
-import { connect } from 'mongoose';
+
 import userRoutes from "./user/user.route"
 import postRoutes from "./post/post.route"
 import commentRoutes from "./comment/comment.route"
