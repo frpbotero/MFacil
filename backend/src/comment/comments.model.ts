@@ -4,7 +4,7 @@ export interface IComment{
     author:string;
     post:string;
     content:string;
-    interactions:Array<string>
+    interactions?:Array<string>
 }
  const commentSchema = new mongoose.Schema({
     author: { type: String, require: true },

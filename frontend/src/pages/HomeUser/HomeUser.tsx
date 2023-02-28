@@ -2,15 +2,22 @@ import { useEffect, useState } from "react";
 import { Post } from "../../components/Posts/Post";
 import * as S from "./styles"
 import { apiService } from "../../api/api";
-import { post } from "../../types/types";
 
+
+
+interface Post{
+    author:String;
+    content:String;
+    interactions?:Array<String>
+    comment?:Array<String>
+}
 
 const local:any = localStorage.getItem("user")
 const user = JSON.parse(local)
 
 export function HomeUser(){
     const [post,setPost]=useState('')
-    const [posts,setPosts]=useState<post[]>([])
+    const [posts,setPosts]=useState<Post[]>([])
 
     const payload={
         author:user.id,
@@ -29,10 +36,13 @@ export function HomeUser(){
     }
     async function getPost(){
         await apiService.post.readAllURL()
-        .then(response=>{
-            const data:any = response.data
+        .then((response:any)=>{
+            const data = response.data
 
             setPosts(data)
+        })
+        .catch((e:Error)=>{
+            console.log(e)
         })
     }
     
@@ -41,7 +51,6 @@ export function HomeUser(){
         getPost()
     },[])
 
-    console.log(posts)
     return(
         <S.Conteiner>
             <S.Post action="">
@@ -51,8 +60,8 @@ export function HomeUser(){
             </S.Post >
 
             {
-                posts.map(post=>(
-                    <Post key={post.author} props:post/>
+                posts.map((post:Post,index:number)=>(
+                    <Post key={index} author={post.author} content={post.content} interations={post.interactions} comment={post.comment}/>
                 ))
             }
         </S.Conteiner>

@@ -1,4 +1,5 @@
-export type user = {
+export type Tuser = {
+    id?:string;
     name:string;
     profession:string;
     dateNasc:string;
@@ -9,14 +10,16 @@ export type user = {
     createdAt:String
 }
 
-export type comment={
+export type Tcomment={
+    id?:string;
     author:string;
     post:string;
     content:string;
     interactions:Array<string>
 }
-export type post={
+export type Tpost={
     author:String;
     content:String;
     interactions?:Array<String>
+    comment?:Array<String>
 }
