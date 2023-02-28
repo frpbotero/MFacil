@@ -1,12 +1,20 @@
+import mongoose from "mongoose";
 import service from "./user.service"
+
+function isObjectIdValid(id:any) {
+    return mongoose.Types.ObjectId.isValid(id);
+  }
 
 async function findAll(req,res){
     const users = await service.findAllUser()
     res.send(users)
 }
 async function findById(req,res){
-    //criar validação do ID
+   
     const id = req.params
+    if (!isObjectIdValid(id)) {
+        return res.status(404).json({ message: "ID inválido!" });
+      }
     const user = await service.findByIdUser(id)
     res.send(user)
 }
@@ -16,15 +24,21 @@ async function create(req,res){
     res.send(user)
 }
  async function updateById(req,res){
-        //criar validação do ID
+
     const id = req.params
+    if (!isObjectIdValid(id)) {
+        return res.status(404).json({ message: "ID inválido!" });
+      }
     const body = req.body
     const user = await service.updateUser(id,body)
     res.send(user)
 }
 async function deleteByID(req,res){
-        //criar validação do ID
+        
     const id = req.params
+    if (!isObjectIdValid(id)) {
+        return res.status(404).json({ message: "ID inválido!" });
+      }
     await service.deleteUser(id)
     res.send({message:"User deleted"})
 }

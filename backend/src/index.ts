@@ -7,7 +7,7 @@ import { connect } from 'mongoose';
 import userRoutes from "./user/user.route"
 import postRoutes from "./post/post.route"
 import commentRoutes from "./comment/comment.route"
-import {connectToDataBase} from "./db/db.helpers"
+import DB from "./db/db.helpers"
 
 const PORT = process.env.PORT || process.env.LOCAL_PORT
 const app = express();
@@ -15,7 +15,7 @@ const app = express();
 
 async function main(){
 
-    await connectToDataBase()
+    await DB.connectToDataBase()
 
     
 
