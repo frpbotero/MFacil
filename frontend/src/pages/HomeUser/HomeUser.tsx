@@ -5,7 +5,9 @@ import { apiService } from "../../api/api";
 
 
 
+
 interface Post{
+    _id:String;
     author:String;
     content:String;
     interactions?:Array<String>
@@ -51,6 +53,7 @@ export function HomeUser(){
         getPost()
     },[])
 
+    
     return(
         <S.Conteiner>
             <S.Post action="">
@@ -61,7 +64,7 @@ export function HomeUser(){
 
             {
                 posts.map((post:Post,index:number)=>(
-                    <Post key={index} author={post.author} content={post.content} interations={post.interactions} comment={post.comment}/>
+                    <Post key={post._id} author={post.author} content={post.content} interations={post.interactions} comment={post.comment} idPost={post._id} refreshPost={getPost}/>
                 ))
             }
         </S.Conteiner>

@@ -5,15 +5,27 @@ import trash from "../../assets/trash.svg"
 import { apiService } from "../../api/api";
 import { Tuser,Tcomment } from "../../types/types";
 
+interface Icomment{
+    _id:string;
+    author:string;
+    post:string;
+    content:string;
+    interactions:Array<string>
+}
+
+const getdate:any = localStorage.getItem("user")
+const userLocal = JSON.parse(getdate)
 
 
-export function Post({author,content,comment,interations}:any) {
-    const [comments, setComments] = useState('')
+
+export function Post({author,content,comment,interations,idPost,refreshPost}:any) {
+    console.log()
+    const [contentComment, setcontentComment] = useState('')
     const [replie, setReplie] = useState(false)
     const [viewComment, setViewComment] = useState(false)
     const [like, setLike] = useState(0)
     const [user,setUser] = useState<Tuser>()
-    const listComment=[comment]
+    const [listComment,setListComment]=useState<Icomment[]>([])
 
     function handleReplie() {
         setReplie(!replie)
@@ -22,10 +34,19 @@ export function Post({author,content,comment,interations}:any) {
         setViewComment(!viewComment)
     }
 
-    async function deletePost(id:any){
-        await apiService.post.deleteURL(id)
-        
+    async function deletePost(){
+        const request= await apiService.post.deleteURL(idPost)
+
+        if (request.status == 200) {
+            alert("Item excluído com sucesso! ");
+          } else {
+            alert("Algo aconteceu de errado, item não excluído.");
+          }
+          refreshPost()
+          //Preciso incluir o deleteComments desse post
     }
+
+
 
 
     async function getUser(){
@@ -38,14 +59,56 @@ export function Post({author,content,comment,interations}:any) {
         .catch((e:Error)=>{
             console.log(e)
         })
-       
-
     }
     
+    async function getComments(){
+        function verify(value:any){
+            if(value.post==idPost){
+                return value
+            }
+        }
+        
+
+        await apiService.comment.readAllURL()
+        .then((response:any)=>{
+            const data = response.data
+
+            const result = data.filter(verify)
+
+
+            setListComment(result)
+
+        })
+    }
+    
+    async function createComment(){
+        const payload = {
+            author: userLocal.id, // usuario logado
+            post:idPost,
+            content:contentComment,
+            interactions:[]
+        }
+        const request = await apiService.comment.createURL(payload)
+        
+        if (request.status == 200) {
+            alert("Comentário realizado com sucesso! ");
+          } else {
+            alert("Algo aconteceu de errado, comentário não realizado.");
+          }
+
+
+
+        getComments()
+    }
+
 
     useEffect(()=>{
         getUser()
+        getComments()
     },[])
+
+    
+
 
 
     
@@ -66,7 +129,7 @@ export function Post({author,content,comment,interations}:any) {
                     </S.Content>
                     <S.Footer>
                         <div>
-                            <p>Gostei ({like})</p> <p>3 d</p>
+                            <p>Gostei ({like})</p> 
                         </div>
                         <div>
                             <button onClick={e => setLike(like + 1)}>Gostei</button><span><button onClick={handleViewComment}>Comentários</button></span><button onClick={handleReplie}>Responder</button>
@@ -74,8 +137,8 @@ export function Post({author,content,comment,interations}:any) {
 
                         <S.spaceResponse>
                             {replie ? <form action="">
-                                <textarea name="" id="contentComments" onChange={e => setComments(e.target.value)} />
-                                {comments !== "" ? <div><button>Enviar</button></div> : ""}
+                                <textarea name="" id="contentComments" onChange={e => setcontentComment(e.target.value)} />
+                                {contentComment !== "" ? <div><button onClick={createComment}>Enviar</button></div> : ""}
                             </form> : ""}
 
                         </S.spaceResponse>
@@ -91,9 +154,9 @@ export function Post({author,content,comment,interations}:any) {
             {viewComment ? <S.sectionComments> 
                 {/* se tiver comentario aparece senao fica um <></> */}
 
-                {listComment.map((comment:Tcomment,index:number)=>(
-                    <Comments key={index}  author={comment.author} content={comment.content} interactions={comment.interactions}/>
-                ))}
+                {listComment.map((comment:Icomment,index:number)=>(
+                    <Comments key={index}  author={comment.author} content={comment.content} interactions={comment.interactions} _id={comment._id} refreshComment={getComments}/>
+                ))} 
                 
                 
             </S.sectionComments> : ""}

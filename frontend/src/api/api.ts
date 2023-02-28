@@ -1,5 +1,5 @@
 import axios from "axios"
-import {user,post,comment} from "../types/types"
+import {Tuser,Tpost,Tcomment} from "../types/types"
 
 const api = axios.create({
     baseURL:"http://localhost:3333/",
@@ -11,16 +11,16 @@ const api = axios.create({
 export const apiService = {
     user:{
         readAllURL:function(){
-            return api.get<user>("/user")
+            return api.get<Tuser>("/user")
         },
         readByIdURL:function(id:any){
-            return api.get<user>("/user/"+id)
+            return api.get<Tuser>("/user/"+id)
         },
-        createURL:function(body:user){
-            return api.post<user>("/user",body)
+        createURL:function(body:Tuser){
+            return api.post<Tuser>("/user",body)
         },
         
-        updateURL:function(id:any,body:user){
+        updateURL:function(id:any,body:Tuser){
             return api.put<any>("/user/"+id,body)
         },
         deleteURL:function(id:any){
@@ -30,16 +30,16 @@ export const apiService = {
     },
     post:{
         readAllURL:function(){
-            return api.get<post>("/post")
+            return api.get<Tpost>("/post")
         },
         readByIdURL:function(id:any){
-            return api.get<post>("/post/"+id)
+            return api.get<Tpost>("/post/"+id)
         },
-        createURL:function(body:post){
-            return api.post<post>("/post",body)
+        createURL:function(body:Tpost){
+            return api.post<Tpost>("/post",body)
         },
         
-        updateURL:function(id:any,body:post){
+        updateURL:function(id:any,body:Tpost){
             return api.put<any>("/post/"+id,body)
         },
         deleteURL:function(id:any){
@@ -49,16 +49,16 @@ export const apiService = {
     },
     comment:{
         readAllURL:function(){
-            return api.get<comment>("/comment")
+            return api.get<Tcomment>("/comment")
         },
         readByIdURL:function(id:any){
-            return api.get<comment>("/comment/"+id)
+            return api.get<Tcomment>("/comment/"+id)
         },
-        createURL:function(body:comment){
-            return api.post<comment>("/comment",body)
+        createURL:function(body:Tcomment){
+            return api.post<Tcomment>("/comment",body)
         },
         
-        updateURL:function(id:any,body:comment){
+        updateURL:function(id:any,body:Tcomment){
             return api.put<any>("/comment/"+id,body)
         },
         deleteURL:function(id:any){
