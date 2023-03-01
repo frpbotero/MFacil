@@ -66,7 +66,7 @@ export function Register(){
                 <S.Header>
                     
                     <h4>Vamos embarcar?</h4>
-                    <h2>MFácil</h2>
+                    <h2>Ieasy</h2>
 
                 </S.Header>
                 <S.Form>

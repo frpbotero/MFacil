@@ -46,7 +46,7 @@ export function Login(){
                 <S.Header>
                     {/* <img src= alt="" /> */}
                     <h4>Bem vindo a bordo!</h4>
-                    <h2>MFácil</h2>
+                    <h2>Ieasy</h2>
 
                 </S.Header>
                 <S.Form>
