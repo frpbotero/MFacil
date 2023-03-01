@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 import "dotenv/config"
-const url = process.env.URL;
+const url = process.env.URL||"";
 
 function connectToDataBase() {
   return mongoose
