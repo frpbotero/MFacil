@@ -10,6 +10,7 @@ export interface Iuser extends Document{
     password:string;
     createdAt:string
     access_token?:string;
+    confirmPassword?:string
 }
 
 

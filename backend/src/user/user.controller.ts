@@ -7,6 +7,15 @@ import { Request, Response } from 'express';
 import { sign } from 'jsonwebtoken';
 
 
+interface Irequest{
+  params:string, 
+  
+  body:Iuser
+  
+ 
+
+}
+
 const auth = {  
   expires: '24h',
 };
@@ -16,11 +25,11 @@ function isObjectIdValid(id:any) {
     return mongoose.Types.ObjectId.isValid(id);
   }
 
-async function findAll(req:Request,res:Response){
+async function findAll(req:Irequest,res:Response){
     const users = await service.findAllUser()
     res.send(users)
 }
-async function findById(req:Request,res:Response){
+async function findById(req:Irequest,res:Response){
    
   const id:any = req.params
     if (!isObjectIdValid(id)) {
@@ -29,7 +38,7 @@ async function findById(req:Request,res:Response){
     const user = await service.findByIdUser(id)
     res.send(user)
 }
-async function create(req:Request,res:Response){
+async function create(req:Irequest,res:Response){
     const {name,email,password,confirmPassword,createdAt} = req.body
 
     const users = await service.findAllUser()
@@ -79,7 +88,7 @@ async function create(req:Request,res:Response){
     res.send(user)
 }
 
-  async function login(req:Request,res:Response){
+  async function login(req:Irequest,res:Response){
     
       try {
             const { email, password:passBody } = req.body;
@@ -96,7 +105,7 @@ async function create(req:Request,res:Response){
 
             // if (!isPasswordValid) return res.status(401).json({ message: "A senha inserida não confere!" })
 
-            const secret = process.env.SECRET;
+            const secret = process.env.SECRET||"";
             const access_token =  sign(
               {
                 
@@ -124,7 +133,7 @@ async function create(req:Request,res:Response){
   
 
 
- async function updateById(req:Request,res:Response){
+ async function updateById(req:Irequest,res:Response){
 
     const id:any = req.params
     if (!isObjectIdValid(id)) {
@@ -134,7 +143,7 @@ async function create(req:Request,res:Response){
     const user = await service.updateUser(id,body)
     res.send(user)
 }
-async function deleteByID(req:Request,res:Response){
+async function deleteByID(req:Irequest,res:Response){
         
   const id:any = req.params
     if (!isObjectIdValid(id)) {

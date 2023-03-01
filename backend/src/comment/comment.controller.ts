@@ -1,6 +1,17 @@
 import service from "./comment.service"
 import mongoose from "mongoose";
 import { Request, Response } from 'express';
+import { IComment } from "./comments.model";
+
+interface Irequest{
+  params:string, 
+  
+  body:IComment
+  
+ 
+
+}
+
 
 function isObjectIdValid(id:any) {
     return mongoose.Types.ObjectId.isValid(id);
@@ -11,7 +22,7 @@ async function findAll(req:Request,res:Response){
     const comments = await service.findAllComments()
     res.send(comments)
 }
-async function findById(req:Request,res:Response){
+async function findById(req:Irequest,res:Response){
     const id = req.params
     if (!isObjectIdValid(id)) {
         return res.status(404).json({ message: "ID inválido!" });
@@ -24,7 +35,7 @@ async function create(req:Request,res:Response){
     const comment = await service.createComment(body)
     res.send(comment)
 }
-async function updateById(req:Request,res:Response){
+async function updateById(req:Irequest,res:Response){
     const id = req.params
     if (!isObjectIdValid(id)) {
         return res.status(404).json({ message: "ID inválido!" });
@@ -33,7 +44,7 @@ async function updateById(req:Request,res:Response){
     const comment = await service.updateComment(id,body)
     res.send(comment)
 }
-async function deleteByID(req:Request,res:Response){
+async function deleteByID(req:Irequest,res:Response){
     const id = req.params
     if (!isObjectIdValid(id)) {
         return res.status(404).json({ message: "ID inválido!" });
