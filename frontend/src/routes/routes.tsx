@@ -5,9 +5,7 @@ import { Login } from '../pages/Login/Login'
 import { Register } from '../pages/Register/Register'
 import { HomeUser } from '../pages/HomeUser/HomeUser'
 import { ConfigUser } from '../pages/ConfigUser/ConfigUser'
-import { ProtectedRoutes } from "../protectedRoutes/ProtectedRoutes";
-import PostProvider from "../providers/PostContext";
-import { NotFoundPage } from "../pages/NotFoundPage";
+
 
 const AppRoutes = () => {
   return (

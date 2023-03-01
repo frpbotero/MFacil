@@ -10,7 +10,9 @@ function findAllUser(){
 }
 function findByIdUser(id:string){
     const objectId = new mongoose.Types.ObjectId(id)
-    return User.find(objectId)
+    return User.find(objectId).select(
+        "_id name email profession"
+    )
 }
 function createUser(body:Iuser){
     return User.create(body)

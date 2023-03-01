@@ -7,7 +7,7 @@ export const Container = styled.div`
     align-items:center;
     background-color:#A078BE;
     color:white;
-    padding:0.2rem 0.5rem;
+    padding:0.2rem 1rem;
 
     a{
         text-decoration:none
@@ -38,21 +38,55 @@ export const Logo = styled.h1`
     }
 `
 
-export const User=styled.button`
+export const User=styled.div`
     display:flex;
     gap:0.5rem;
     
     align-items:center;
-    cursor:pointer;
+   
     background:transparent;
     color:white;
     
-
     img{
         height:2.5rem;
         border-radius:2rem
     }
     p{
         font-weight:bold
+    }
+
+    div[class='dropdownLogout']{
+    display: flex;
+    flex-direction: column;
+    align-items: center;       
+}
+
+    div[class='box']{
+        display:flex;
+        flex-direction:column;
+        position:absolute;
+        margin-top:3.5rem;
+        
+        gap:0.2rem;
+        button{
+        border:none;
+        
+        color:white;
+        height: 2rem;
+        font-size: large;
+        border-radius: 0.5rem;
+        
+        };
+        
+    }
+    /* button[class="buttonUser]{
+        diplay:flex
+    } */
+    
+   
+
+    div[class='hidden']{
+        display: none;
+
     }
 `

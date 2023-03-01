@@ -8,7 +8,7 @@
         |> Armazenamento de imagem de usuario
 
 \*Frontend
-[ ] Modal para mostrar dados de outro usuario ao cliclar sobre a foto do post.
+
 [ ] Passar id do usuario logado no post e nos comments
 [ ] Como fazer uma rota para incluir um comentario dentro de determinado post
 
@@ -16,3 +16,4 @@
 
 [ ] Mensageria:
 |> Criar sistema de mensagens entre usuários
+|> Incluir foto de usuario

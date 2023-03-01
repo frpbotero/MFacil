@@ -4,6 +4,7 @@ import { Comments } from "../Comments/Comments";
 import trash from "../../assets/trash.svg"
 import { apiService } from "../../api/api";
 import { Tuser,Tcomment } from "../../types/types";
+import person from "../../assets/person2.svg"
 
 interface Icomment{
     _id:string;
@@ -15,13 +16,13 @@ interface Icomment{
 
 const getdate:any = localStorage.getItem("user")
 
-export function Post({author,content,comment,interations,idPost,refreshPost}:any) {
+export function Post({author,content,idPost,refreshPost}:any) {
     const userLocal = JSON.parse(getdate)
-    
+   
     const [contentComment, setcontentComment] = useState('')
     const [replie, setReplie] = useState(false)
     const [viewComment, setViewComment] = useState(false)
-    const [like, setLike] = useState(0)
+    
     const [user,setUser] = useState<Tuser>()
     const [listComment,setListComment]=useState<Icomment[]>([])
 
@@ -33,23 +34,21 @@ export function Post({author,content,comment,interations,idPost,refreshPost}:any
     }
 
     async function deletePost(){
-        
+        if(author==userLocal.id){
 
+            const request= await apiService.post.deleteURL(idPost)
 
-
-        const request= await apiService.post.deleteURL(idPost)
-
-        if (request.status == 200) {
-            alert("Item excluído com sucesso! ");
-          } else {
-            alert("Algo aconteceu de errado, item não excluído.");
-          }
-          refreshPost()
-          //Preciso incluir o deleteComments desse post
+            if (request.status == 200) {
+                alert("Item excluído com sucesso! ");
+              } else {
+                alert("Algo aconteceu de errado, item não excluído.");
+              }
+              refreshPost()
+              //Preciso incluir o deleteComments desse post
+        }else{
+            alert("Você não tem permissão para excluir esse post! ")
+        }
     }
-
-
-
 
     async function getUser(){
         await apiService.user.readByIdURL(author)
@@ -108,11 +107,6 @@ export function Post({author,content,comment,interations,idPost,refreshPost}:any
         getUser()
         getComments()
     },[])
-
-    
-
-
-
     
     return (
         <S.Container>
@@ -121,20 +115,32 @@ export function Post({author,content,comment,interations,idPost,refreshPost}:any
                     <S.Content>
                         <S.Header>
                             <div>
-                            <S.User src="https://avatars.githubusercontent.com/u/59348629?v=4" alt="Felipe Botero" />
-                                    <h3>{!user?"":user.name}</h3>
-                                    <p>{!user?"":user.profession}</p>
+                                {
+                                    !user?"":
+                                    user.map((user:any,index:any)=>(
+                                        <div key={`${user.id}${index}`} >
+                                    <S.User  src={person} alt={user.name.split(' ').slice(0,1)} />
+                                    <h3>{user.name.split(' ').slice(0,1)}</h3>
+                                    <p>{user.profession}</p>
+                                    </div>))
+                                }
+                                    
+
+                                    
+                            
+                            
                             </div>
                             <button onClick={deletePost}><img className="trash"src={trash} alt="" /></button>
                         </S.Header>
                        {content}
                     </S.Content>
                     <S.Footer>
-                        <div>
+                        {/* <div>
                             <p>Gostei ({like})</p> 
-                        </div>
+                        </div> */}
                         <div>
-                            <button onClick={e => setLike(like + 1)}>Gostei</button><span><button onClick={handleViewComment}>Comentários</button></span><button onClick={handleReplie}>Responder</button>
+                            {/* <button onClick={e => setLike(like + 1)}>Gostei</button> */}
+                            <span><button onClick={handleViewComment}>Comentários</button></span><button onClick={handleReplie}>Responder</button>
                         </div>
 
                         <S.spaceResponse>

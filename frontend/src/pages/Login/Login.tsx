@@ -2,7 +2,7 @@
 import * as S from "./styles"
 
 import LoginImage from "../../assets/login.svg"
-import { useState } from "react"
+import { useState,useEffect } from "react"
 import { apiService } from "../../api/api"
 import { Link, useNavigate } from "react-router-dom"
 
@@ -11,7 +11,7 @@ import { Link, useNavigate } from "react-router-dom"
 export function Login(){
     const[email,setEmail]=useState<String>("")
     const[password,setPassword]=useState<String>("")
-    const [userInfo,setUserInfo]=useState("null")
+    const [userInfo,setUserInfo]=useState("")
 
     interface IUser{
         email:String,
@@ -27,30 +27,17 @@ export function Login(){
             email:email,
             password:password
         }
-        // ---
-        await apiService.user.conectUrl(payload)
-        .then((response:any)=>{
-            console.log(response.data)
+        
+        const request = await apiService.user.conectUrl(payload)
+        const data = await request.data
 
-             setUserInfo(response.data)
-
+        
+        if(request.status==200){
+            localStorage.setItem("user",JSON.stringify(data))
             
-        }).catch((e:Error)=>{
-            console.log(e)
-        })
-        
-        //  ----    
-
-        console.log(userInfo)
-        localStorage.setItem("user",JSON.stringify(userInfo))
-        // navigate("/feed")
-       
-
-        
-        
+            navigate("/handle")
+        }
     }
-    
-
 
     return(
         <S.Container>

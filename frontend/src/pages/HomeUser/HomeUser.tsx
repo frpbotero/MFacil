@@ -27,15 +27,9 @@ export function HomeUser(){
         if(!user||user==undefined||user=="null"){
             navigate("/login")
         }else{
-            
-            // const request = await API.users.readById(user.id,user.token)
-            // const data = await request.json()
-            // setUserInfo(data)
+            ""      
         }
     }
-
-
-    
 
     async function createPost(){
         const payload={

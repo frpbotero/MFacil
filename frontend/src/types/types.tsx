@@ -5,8 +5,8 @@ export type Tuser = {
     dateNasc?:String;
     resume?:String;
     linkPortfolio?:String;
-    email:String;
-    password:String;
+    email?:String;
+    password?:String;
     confirmPassword?:String;
     createdAt?:Date
 }

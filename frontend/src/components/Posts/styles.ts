@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const Container = styled.body`
+export const Container = styled.div`
     width:40vw;
     display:flex;
     flex-direction:column
@@ -44,7 +44,7 @@ width:40vw;
 
 `
 export const Content=styled.main`
-    
+    width:40vw;
     text-align:justify;
     background-color:#cecece;
     padding:0.5em;
