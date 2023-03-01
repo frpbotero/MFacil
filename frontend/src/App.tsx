@@ -8,9 +8,7 @@ import { useEffect, useState } from 'react'
 const gUser:any = localStorage.getItem("user")
 
 
- 
-
-function App() {
+ function App() {
   const [user,setUser]=useState("")
   const navigate = useNavigate()
 

@@ -46,7 +46,7 @@ export function Register(){
             if(request.status==200){
                alert("Usuario criado com sucesso!")
                 
-                navigate("/feed")
+                navigate("/login")
                 window.location.href=window.location.href
             }else{
                 alert("Aconteceu algo de errado!")
