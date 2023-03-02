@@ -10,23 +10,12 @@ import { ConfigUser } from '../pages/ConfigUser/ConfigUser'
 const AppRoutes = () => {
   return (
     <Routes>
-      <Route  path="/"index  element={<Home/>}/>
+      <Route  path="/" index  element={<Home/>}/>
             <Route  path="/login" element={<Login/>}/>
             <Route  path="/register" element={<Register/>}/>
             <Route  path="/feed" element={<HomeUser/>}/>
             <Route  path="/handle" element={<ConfigUser/>}/>
-      {/* <Route
-        path="/feed"
-        element={
-          <ProtectedRoutes>
-            <PostProvider>
-              {" "}
-              <HomeUser />{" "}
-            </PostProvider>
-          </ProtectedRoutes>
-        }
-      />
-      <Route path="*" element={<NotFoundPage />} /> */}
+      
     </Routes>
   );
 };

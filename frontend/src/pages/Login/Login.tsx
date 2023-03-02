@@ -35,7 +35,8 @@ export function Login(){
         if(request.status==200){
             localStorage.setItem("user",JSON.stringify(data))
             
-            navigate("/handle")
+            navigate("/feed")
+            // window.location.href=window.location.href
         }
     }
 

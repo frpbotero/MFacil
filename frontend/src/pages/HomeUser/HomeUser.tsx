@@ -23,7 +23,7 @@ export function HomeUser(){
   
     const navigate = useNavigate()
 
-    async function verifyUser(){
+    function verifyUser(){
         if(!user||user==undefined||user=="null"){
             navigate("/")
         }else{
@@ -31,7 +31,9 @@ export function HomeUser(){
         }
     }
 
-    async function createPost(){
+    verifyUser()
+    async function createPost(event:any){
+        event.preventDefault()
         const payload={
             author:user.id,
             content:post
@@ -42,6 +44,8 @@ export function HomeUser(){
         .then(response=>{
             const data = response.data
             
+
+            console.log(data)
             
         })
         .catch((e:Error)=>{
@@ -53,7 +57,7 @@ export function HomeUser(){
         .then((response:any)=>{
             const data = response.data
 
-            console.log(data)
+        
             setPosts(data)
         })
         .catch((e:Error)=>{
@@ -63,7 +67,7 @@ export function HomeUser(){
     
     
     useEffect(()=>{
-        verifyUser()
+        
         getPost()
         
     },[])
@@ -71,9 +75,9 @@ export function HomeUser(){
     
     return(
         <S.Conteiner>
-            <S.Post action="">
+            <S.Post onSubmit={createPost}>
                 <textarea placeholder="Digite sua mensagem" onChange={e=>setPost(e.target.value)}/>
-                {!post?<div className="button"><button>Enviar</button></div>:<div className="button"><button className="postButton" onClick={createPost}>Enviar</button></div>}
+                {!post?<div className="button"><button>Enviar</button></div>:<div className="button"><button className="postButton" >Enviar</button></div>}
 
             </S.Post >
 

@@ -24,8 +24,7 @@ import user17 from "../../assets/avatar/user17.png"
 import user18 from "../../assets/avatar/user18.png"
 import user19 from "../../assets/avatar/user19.png"
 import user20 from "../../assets/avatar/user20.png"
-import {getInfo} from "../../utils/getUserByKey"
-import { userInfo } from "../../utils/getUserByKey"
+
 
 
 const getdate:any = localStorage.getItem("user")
@@ -33,6 +32,14 @@ const getdate:any = localStorage.getItem("user")
 
 export function ConfigUser(){
     const userLocal:any = JSON.parse(getdate)
+
+    async function verifyUser(){
+        if(!userLocal||userLocal==undefined||userLocal=="null"){
+            navigate("/")
+        }else{
+            ""      
+        }
+    }
 
     
     const [profession,setProfession]=useState<any>("")
@@ -46,10 +53,8 @@ export function ConfigUser(){
     
     async function updateUser(event:any){
         event.preventDefault()
-
         const id = userLocal.id
         
-
         const payload:Tuser={}
         
         if(avatar!=""){
@@ -71,17 +76,17 @@ export function ConfigUser(){
         // const data = await request.json()
         if(request.status==200){
            alert("Usuario criado com sucesso!")
-            
             navigate("/feed")
-            window.location.href=window.location.href
         }else{
             alert("Aconteceu algo de errado!")
         }
 
-        navigate("/feed")
+        navigate("/")
     }
 
-    
+    useEffect(()=>{
+        verifyUser()
+    })
 
 
     return(

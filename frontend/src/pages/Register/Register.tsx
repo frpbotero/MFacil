@@ -47,7 +47,7 @@ export function Register(){
                alert("Usuario criado com sucesso!")
                 
                 navigate("/login")
-                window.location.href=window.location.href
+                // window.location.href=window.location.href
             }else{
                 alert("Aconteceu algo de errado!")
             }

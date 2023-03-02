@@ -31,9 +31,11 @@ export function Post({author,content,idPost,refreshPost}:any) {
         setReplie(!replie)
     }
     function handleViewComment() {
+        getComments()
         setViewComment(!viewComment)
     }
 
+    
     async function deletePost(){
         if(author==userLocal.id){
 
@@ -70,7 +72,6 @@ export function Post({author,content,idPost,refreshPost}:any) {
             }
         }
         
-
         await apiService.comment.readAllURL()
         .then((response:any)=>{
             const data = response.data
@@ -84,7 +85,8 @@ export function Post({author,content,idPost,refreshPost}:any) {
         })
     }
     
-    async function createComment(){
+    async function createComment(event:any){
+        event.preventDefault()
         const payload = {
             author: userLocal.id, // usuario logado
             post:idPost,
@@ -93,21 +95,22 @@ export function Post({author,content,idPost,refreshPost}:any) {
         }
         const request = await apiService.comment.createURL(payload)
         
+        console.log(request)
         if (request.status == 200) {
             alert("Comentário realizado com sucesso! ");
           } else {
             alert("Algo aconteceu de errado, comentário não realizado.");
           }
 
+          setReplie(!replie)
 
-
-        getComments()
+        
     }
 
 
     useEffect(()=>{
         getUser()
-        getComments()
+        
     },[])
     
     return (
@@ -126,10 +129,6 @@ export function Post({author,content,idPost,refreshPost}:any) {
                                     <p>{user.profession}</p>
                                     </div>))
                                 }
-                                    
-
-                                    
-                            
                             
                             </div>
                             <button onClick={deletePost}><img className="trash"src={trash} alt="" /></button>
@@ -146,9 +145,9 @@ export function Post({author,content,idPost,refreshPost}:any) {
                         </div>
 
                         <S.spaceResponse>
-                            {replie ? <form action="">
+                            {replie ? <form onSubmit={createComment}>
                                 <textarea name="" id="contentComments" onChange={e => setcontentComment(e.target.value)} />
-                                {contentComment !== "" ? <div><button onClick={createComment}>Enviar</button></div> : ""}
+                                {contentComment !== "" ? <div><button>Enviar</button></div> : ""}
                             </form> : ""}
 
                         </S.spaceResponse>

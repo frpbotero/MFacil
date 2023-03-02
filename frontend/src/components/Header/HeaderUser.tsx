@@ -19,6 +19,15 @@ export function HeaderUser(){
 
     const navigate = useNavigate()
 
+
+    async function verifyUser(){
+        if(!userLocal||userLocal==undefined||userLocal=="null"){
+            navigate("/")
+        }else{
+            ""      
+        }
+    }
+
     function handleUpdate(){
         setFlag(!flag);
     }
@@ -26,7 +35,7 @@ export function HeaderUser(){
     function logout(){
         localStorage.removeItem("user")
         navigate("/")
-        window.location.href=window.location.href
+        // window.location.href=window.location.href
     }
     function configUser(){
         navigate("/handle")
@@ -50,6 +59,7 @@ export function HeaderUser(){
     }
     useEffect(()=>{
       getUser()
+      verifyUser()
         
     },[])
 
