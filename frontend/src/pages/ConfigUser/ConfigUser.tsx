@@ -18,7 +18,8 @@ export function ConfigUser(){
     const navigate = useNavigate()
 
 
-    console.log(userLocal.id)
+    
+    
     async function updateUser(event:any){
         event.preventDefault()
 

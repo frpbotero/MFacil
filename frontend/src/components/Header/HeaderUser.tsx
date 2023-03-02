@@ -49,7 +49,7 @@ export function HeaderUser(){
         
     },[])
 
-    console.log(user)
+
 
     return(
         <S.Container>
