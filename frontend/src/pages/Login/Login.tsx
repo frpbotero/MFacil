@@ -36,7 +36,7 @@ export function Login(){
             localStorage.setItem("user",JSON.stringify(data))
             
             navigate("/feed")
-            // window.location.href=window.location.href
+            window.location.href=window.location.href
         }
     }
 

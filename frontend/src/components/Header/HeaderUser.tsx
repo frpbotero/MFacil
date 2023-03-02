@@ -35,7 +35,7 @@ export function HeaderUser(){
     function logout(){
         localStorage.removeItem("user")
         navigate("/")
-        // window.location.href=window.location.href
+        window.location.href=window.location.href
     }
     function configUser(){
         navigate("/handle")
