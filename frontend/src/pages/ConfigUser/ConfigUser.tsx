@@ -31,7 +31,7 @@ export function ConfigUser(){
 
 
     async function getUser(){
-        await apiService.user.readByIdURL(userLocal.id)
+        await apiService.user.readByIdUpdateURL(userLocal.id)
         .then((response:any)=>{
             const data = response.data
            

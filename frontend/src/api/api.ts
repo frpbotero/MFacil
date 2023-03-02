@@ -19,6 +19,9 @@ export const apiService = {
         readByIdURL:function(id:any){
             return api.get<Tuser>("/user/"+id)
         },
+        readByIdUpdateURL:function(id:any){
+            return api.get<Tuser>("/user/s/"+id)
+        },
         createURL:function(body:Tuser){
             return api.post<Tuser>("/user",body)
         },
