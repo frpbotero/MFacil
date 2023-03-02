@@ -29,6 +29,22 @@ input[type='file']{
 label[class='file']{
    cursor: pointer;
 }
+    div[class='selectAvatar']{
+        display:flex;
+        flex-wrap: wrap;
+        gap:0.5rem;
+
+        div{
+            display:flex;
+            flex-direction:column
+        }
+
+    }
+    img[class='avatar']{
+        height:6rem;
+        width: 5rem;
+    }
+
 `
 
 export const UserImage = styled.img`

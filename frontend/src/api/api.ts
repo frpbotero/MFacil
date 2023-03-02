@@ -3,13 +3,13 @@ import {Tuser,Tpost,Tcomment} from "../types/types"
 
 
 const api = axios.create({
-    baseURL:"https://mfacil.onrender.com",
+    baseURL:"http://localhost:3333",
     headers:{
         "Content-Type":"application/json"
     }
 })
 
-
+// https://mfacil.onrender.com
 
 export const apiService = {
     user:{
@@ -20,7 +20,7 @@ export const apiService = {
             return api.get<Tuser>("/user/"+id)
         },
         readByIdUpdateURL:function(id:any){
-            return api.get<Tuser>("/user/s/"+id)
+            return api.get<Tuser>("/user/update/"+id)
         },
         createURL:function(body:Tuser){
             return api.post<Tuser>("/user",body)

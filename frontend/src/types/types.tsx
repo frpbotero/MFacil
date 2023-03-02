@@ -1,5 +1,6 @@
 export type Tuser = {
     id?:String;
+    avatar?:String;
     name?:String;
     profession?:String;
     dateNasc?:String;
@@ -26,4 +27,7 @@ export type Tpost={
     interactions?:Array<String>;
     comment?:Array<String>;
     map?:Array<Object>
+}
+export type TImageUser={
+    avatar:string
 }
