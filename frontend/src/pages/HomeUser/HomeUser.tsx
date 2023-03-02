@@ -25,7 +25,7 @@ export function HomeUser(){
 
     async function verifyUser(){
         if(!user||user==undefined||user=="null"){
-            navigate("/login")
+            navigate("/")
         }else{
             ""      
         }

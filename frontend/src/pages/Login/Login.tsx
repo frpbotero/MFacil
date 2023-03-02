@@ -11,7 +11,7 @@ import { Link, useNavigate } from "react-router-dom"
 export function Login(){
     const[email,setEmail]=useState<String>("")
     const[password,setPassword]=useState<String>("")
-    const [userInfo,setUserInfo]=useState("")
+    
 
     interface IUser{
         email:String,
