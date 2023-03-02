@@ -108,7 +108,7 @@ async function create(req:Irequest,res:Response){
 
             const user = await User.findOne({ email }).exec();
 
-            console.debug(email)
+  
 
             if (!user) return res.status(401).json({ message: "Email ou senha incorreto!" })
 

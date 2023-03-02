@@ -27,13 +27,13 @@ import user20 from "../../assets/avatar/user20.png"
 
 const getdate:any = localStorage.getItem("user")
 
-interface Iuser{
-    profession?:string;
-    dateNasc?:string;
-    resume?:string;
-    linkPortfolio?:string;
-    email?:string;
-}
+// interface Iuser{
+//     profession?:string;
+//     dateNasc?:string;
+//     resume?:string;
+//     linkPortfolio?:string;
+//     email?:string;
+// }
 
 
 
