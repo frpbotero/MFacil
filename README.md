@@ -8,8 +8,8 @@
 </p>
 <br><br>
 <p align="center">
-Logo do projeto ou Nome
-  <!---<img alt="Learnbridge" src="https://github.com/FeBotero/Inovatec_2022/blob/main/logo.png">-->
+
+  <img alt="Ieasy" src="https://github.com/FeBotero/MFacil/blob/main/frontend/src/assets/logo.svg">
  </p>                
  
  <p align="center">
@@ -26,24 +26,23 @@ Logo do projeto ou Nome
 
 <h2 id="sobre">Sobre</h2>
 
-<p>Projeto desenvolvido para evento Inovatec para faculdade - interdisciplinar</p>
-<p>Criação de uma plataforma entre Universidades, alunos e escolas. O objetivo é trazer a tecnologia para escolas, onde os academicos serão tutores em escolas, solidificando os conhecimentos adquiridos durante sua formação universitária, trazendo para escolas publicas ou particulares a possibilidade de realizar cursos de extensão para seus alunos. </p>
+<p>Projeto de criação de rede social</p>
+<p>A plataforma tem uma estrutura de posts e cometarios, onde os usuários podem se comunicar de forma global, sem haver necessidade de adicionar nenhum usuário. </p>
 
  <h2 id="layout">Layout</h2>
- <p>link</p>
+ <a href="https://ieasy.vercel.app/">Demo</a>
  <p>Foto do projeto</p>
-<!---<img alt="Learnbridge" src="https://github.com/FeBotero/Inovatec_2022/blob/main/learnbridge.png">-->
+   <img alt="Ieasy" src="https://github.com/FeBotero/MFacil/blob/main/assets/Home.png">
 
 
 <h2 id="funcoes">Funcionalidades</h2>
 
 <ul>
-   <li>Cadastro de alunos</li>
-   <li>Cadastro de cursos</li>
-   <li>Cadastro de escolas</li> 
-   <li>Material de conteudo para tutores - Em construção</li>
-   <li>Sistema de avaliação de alunos - Em construção</li>
-   <li>Sistema de certificação  - Em construção</li>
+   <li>CRUD de usuário</li>
+   <li>CRUD de post</li>
+   <li>CRUD de comentários</li> 
+   <li>Seleção de avatar</li>
+   
    
 </ul>
    
@@ -55,11 +54,11 @@ Logo do projeto ou Nome
   
 <p>1 - Clone o repositório</p>
    
-`$ git clone https://github.com/FeBotero/Inovatec_2022.git`
+`$ git clone https://github.com/FeBotero/MFacil.git`
 
 <p>2 - Acesse no repositório localmente</p>
 
-`$ cd Inovatec_2022`
+`$ cd MFacil`
 
 <h3>Agora vamos instalar as dependencia do backend e do frontend.</h3>
 
@@ -81,11 +80,11 @@ Logo do projeto ou Nome
 
 <p>7 - Acesse novamente o backend e o backend da aplicação</p>
 
-`$ npm start`
+`$ npm dev run`
 
 <p>8 - Acesse novamente o frontend e o frontend da aplicação</p>
 
-`$ npm start`
+`$ npm dev run`
 
       
 
@@ -95,8 +94,8 @@ Logo do projeto ou Nome
   <li>React</li>
   <li>Typescript</li>
   <li>Styled-components </li>
-  <li>Prisma</li>
-  <li>SQLite</li>
+  <li>Mongoose</li>
+  <li>MongoDB Atlas</li>
   </ul>
    
 <h2 id="autor">Autor</h2>
