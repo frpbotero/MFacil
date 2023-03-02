@@ -5,6 +5,7 @@ import trash from "../../assets/trash.svg"
 import { apiService } from "../../api/api";
 import { Tuser,Tcomment } from "../../types/types";
 import person from "../../assets/person2.svg"
+import getImageByKey from "../../utils/getImageByKey";
 
 interface Icomment{
     _id:string;
@@ -76,6 +77,7 @@ export function Post({author,content,idPost,refreshPost}:any) {
 
             const result = data.filter(verify)
 
+            console.log(result)
 
             setListComment(result)
 
@@ -119,7 +121,7 @@ export function Post({author,content,idPost,refreshPost}:any) {
                                     !user?"":
                                     user.map((user:any,index:any)=>(
                                         <div key={`${user.id}${index}`} >
-                                    <S.User  src={person} alt={user.name.split(' ').slice(0,1)} />
+                                    <S.User  src={!user.avatar?person:getImageByKey(user.avatar)} alt={user.name.split(' ').slice(0,1)} />
                                     <h3>{user.name.split(' ').slice(0,1)}</h3>
                                     <p>{user.profession}</p>
                                     </div>))

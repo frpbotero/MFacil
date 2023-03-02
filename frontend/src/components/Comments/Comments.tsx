@@ -4,6 +4,7 @@ import { apiService } from "../../api/api";
 import person from "../../assets/person2.svg"
 import { useEffect, useState } from "react";
 import { Tuser } from "../../types/types";
+import getImageByKey from "../../utils/getImageByKey";
 
 
 const getdate:any = localStorage.getItem("user")
@@ -55,7 +56,7 @@ export function Comments({author,content,_id,refreshComment}:any){
                                     !user?"":
                                     user.map((user:any,index:any)=>(
                                         <div key={`${user.id}${index}`} >
-                                     <img  src={person} alt={user.name.split(' ').slice(0,1)}/>
+                                     <img  src={!user.avatar?person:getImageByKey(user.avatar)} alt={user.name.split(' ').slice(0,1)}/>
                                     <h3>{user.name.split(' ').slice(0,1)}</h3>
                                     <p>{user.profession}</p>
                                     </div>))

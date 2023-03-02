@@ -40,7 +40,7 @@ export function HeaderUser(){
         .then((response:any)=>{
             const data = response.data
            
-            console.log(data)
+            
             setUser(data)
             
         })

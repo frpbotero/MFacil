@@ -36,9 +36,12 @@ export function HomeUser(){
             author:user.id,
             content:post
         }
+
+        console.log(payload)
         await apiService.post.createURL(payload)
         .then(response=>{
             const data = response.data
+            
             
         })
         .catch((e:Error)=>{
@@ -50,6 +53,7 @@ export function HomeUser(){
         .then((response:any)=>{
             const data = response.data
 
+            console.log(data)
             setPosts(data)
         })
         .catch((e:Error)=>{
@@ -75,7 +79,7 @@ export function HomeUser(){
 
             {
                 posts.map((post:Post,index:number)=>(
-                    <Post key={post._id} author={post.author} content={post.content} interations={post.interactions} comment={post.comment} idPost={post._id} refreshPost={getPost}/>
+                    <Post key={`${post._id}${index}`} author={post.author} content={post.content} interations={post.interactions} comment={post.comment} idPost={post._id} refreshPost={getPost}/>
                 ))
             }
         </S.Conteiner>
