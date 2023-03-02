@@ -18,6 +18,8 @@ const gUser:any = localStorage.getItem("user")
     navigate("/feed")
     }
   }
+
+
   
   useEffect(()=>{
     getUser()
