@@ -31,7 +31,7 @@ export function Post({author,content,idPost,refreshPost}:any) {
         setReplie(!replie)
     }
     function handleViewComment() {
-        getComments()
+        
         setViewComment(!viewComment)
     }
 
@@ -103,6 +103,7 @@ export function Post({author,content,idPost,refreshPost}:any) {
           }
 
           setReplie(!replie)
+          getComments()
 
         
     }
@@ -110,6 +111,8 @@ export function Post({author,content,idPost,refreshPost}:any) {
 
     useEffect(()=>{
         getUser()
+        getComments()
+        
         
     },[])
     
@@ -141,7 +144,7 @@ export function Post({author,content,idPost,refreshPost}:any) {
                         </div> */}
                         <div>
                             {/* <button onClick={e => setLike(like + 1)}>Gostei</button> */}
-                            <span><button onClick={handleViewComment}>Comentários</button></span><button onClick={handleReplie}>Responder</button>
+                            <span><button onClick={handleViewComment}>Comentários ({listComment.length})</button></span><button onClick={handleReplie}>Responder</button>
                         </div>
 
                         <S.spaceResponse>
