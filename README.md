@@ -33,9 +33,11 @@
  <a href="https://ieasy.vercel.app/">Demo</a>
  
    <img alt="Ieasy" src="https://github.com/FeBotero/MFacil/blob/main/assets/Home.png">
+   <img alt="Ieasy" src="https://github.com/FeBotero/MFacil/blob/main/assets/Register.png">
+   <img alt="Ieasy" src="https://github.com/FeBotero/MFacil/blob/main/assets/Login.png">
    <img alt="Ieasy" src="https://github.com/FeBotero/MFacil/blob/main/assets/Config.png">
    <img alt="Ieasy" src="https://github.com/FeBotero/MFacil/blob/main/assets/Feed.png">
-   <img alt="Ieasy" src="https://github.com/FeBotero/MFacil/blob/main/assets/Login.png">
+   
 
 
 <h2 id="funcoes">Funcionalidades</h2>
