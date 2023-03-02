@@ -9,6 +9,7 @@ export type Tuser = {
     password?:String;
     confirmPassword?:String;
     createdAt?:Date
+    
 }
 
 export type Tcomment={
@@ -17,10 +18,12 @@ export type Tcomment={
     post:String;
     content:String;
     interactions:Array<String>
+    map?:Array<Object>|undefined
 }
 export type Tpost={
     author:String;
     content:String;
-    interactions?:Array<String>
-    comment?:Array<String>
+    interactions?:Array<String>;
+    comment?:Array<String>;
+    map?:Array<Object>
 }

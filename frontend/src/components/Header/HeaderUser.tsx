@@ -11,7 +11,7 @@ const getdate:any = localStorage.getItem("user")
 
 export function HeaderUser(){
     const userLocal = JSON.parse(getdate)
-    const [user,setUser] = useState<Tuser>()
+    const [user,setUser] = useState<[Tuser]>()
     // const [header,setHeader]=useState()
     const [flag,setFlag]=useState(false)
 

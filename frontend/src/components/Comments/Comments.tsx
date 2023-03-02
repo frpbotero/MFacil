@@ -11,7 +11,7 @@ const getdate:any = localStorage.getItem("user")
 export function Comments({author,content,_id,refreshComment}:any){
     
     const userLocal = JSON.parse(getdate)
-    const [user,setUser] = useState<Tuser>()
+    const [user,setUser] = useState<[Tuser]>()
     async function deleteComment(){
         
         if(author==userLocal.id){
