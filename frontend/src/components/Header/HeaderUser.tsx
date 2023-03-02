@@ -36,6 +36,8 @@ export function HeaderUser(){
         localStorage.removeItem("user")
         navigate("/")
         window.location.href=window.location.href
+        navigate("/")
+        
     }
     function configUser(){
         navigate("/handle")
