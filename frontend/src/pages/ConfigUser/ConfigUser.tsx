@@ -1,11 +1,22 @@
 import * as S from "./styles"
 import user from "../../assets/user.svg"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
 import { Tuser } from "../../types/types"
 import { apiService } from "../../api/api"
 
 const getdate:any = localStorage.getItem("user")
+
+interface Iuser{
+    profession?:string;
+    dateNasc?:string;
+    resume?:string;
+    linkPortfolio?:string;
+    email?:string;
+}
+
+
+
 
 export function ConfigUser(){
     const userLocal = JSON.parse(getdate)
@@ -14,11 +25,22 @@ export function ConfigUser(){
     const [dateNasc,setDateNasc]= useState<String>()
     const [resume,setResume]=useState<String>()
     const [portfolio,setPortfolio]=useState<String>()
+    // const [user,setUser] = useState<[Iuser]>()
 
     const navigate = useNavigate()
 
 
-    
+    async function getUser(){
+        await apiService.user.readByIdURL(userLocal.id)
+        .then((response:any)=>{
+            const data = response.data
+           
+            console.log(data)
+        })
+        .catch((e:Error)=>{
+            console.log(e)
+        })
+    }
     
     async function updateUser(event:any){
         event.preventDefault()
@@ -45,6 +67,9 @@ export function ConfigUser(){
     }
 
 
+    useEffect(()=>{
+        getUser()
+    },[])
 
 
 

@@ -14,6 +14,12 @@ function findByIdUser(id:string){
         "_id name email profession"
     )
 }
+function findByIdUserUpdate(id:string){
+    const objectId = new mongoose.Types.ObjectId(id)
+    return User.find(objectId).select(
+        "profession linkPortfolio dateNasc resume"
+    )
+}
 function createUser(body:Iuser){
     return User.create(body)
 }
@@ -33,4 +39,5 @@ export default {
     createUser,
     updateUser,
     deleteUser,
+    findByIdUserUpdate
   };

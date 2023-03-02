@@ -38,6 +38,17 @@ async function findById(req:Irequest,res:Response){
     const user = await service.findByIdUser(id)
     res.send(user)
 }
+async function findByIdUpdate(req:Irequest,res:Response){
+   
+  const id:any = req.params
+    if (!isObjectIdValid(id)) {
+        return res.status(404).json({ message: "ID inválido!" });
+      }
+    const user = await service.findByIdUserUpdate(id)
+    res.send(user)
+}
+
+
 async function create(req:Irequest,res:Response){
     const {name,email,password,confirmPassword,createdAt} = req.body
 
@@ -158,5 +169,6 @@ export default {
     create,
     updateById,
     deleteByID,
-    login
+    login,
+    findByIdUpdate
 }
