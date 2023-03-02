@@ -101,7 +101,7 @@ export function Post({author,content,idPost,refreshPost}:any) {
           } else {
             alert("Algo aconteceu de errado, comentário não realizado.");
           }
-
+          
           setReplie(!replie)
           getComments()
 

@@ -43,14 +43,16 @@ export function HomeUser(){
         await apiService.post.createURL(payload)
         .then(response=>{
             const data = response.data
-            
-
             console.log(data)
             
         })
         .catch((e:Error)=>{
             console.log(e)
         })
+        
+        document.getElementById("contentPost").value =""
+
+        getPost()
     }
     async function getPost(){
         await apiService.post.readAllURL()
@@ -76,7 +78,7 @@ export function HomeUser(){
     return(
         <S.Conteiner>
             <S.Post onSubmit={createPost}>
-                <textarea placeholder="Digite sua mensagem" onChange={e=>setPost(e.target.value)}/>
+                <textarea id="contentPost" placeholder="Digite sua mensagem" onChange={e=>setPost(e.target.value)}/>
                 {!post?<div className="button"><button>Enviar</button></div>:<div className="button"><button className="postButton" >Enviar</button></div>}
 
             </S.Post >

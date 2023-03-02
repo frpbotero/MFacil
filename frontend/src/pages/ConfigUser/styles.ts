@@ -43,6 +43,7 @@ label[class='file']{
     img[class='avatar']{
         height:6rem;
         width: 5rem;
+        padding:0.2rem
     }
 
 `
