@@ -3,7 +3,7 @@ import {Tuser,Tpost,Tcomment} from "../types/types"
 
 
 const api = axios.create({
-    baseURL:"http://localhost:3333",
+    baseURL:"https://mfacil.onrender.com",
     headers:{
         "Content-Type":"application/json"
     }
