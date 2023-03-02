@@ -23,7 +23,7 @@ export function Post({author,content,idPost,refreshPost}:any) {
     const [replie, setReplie] = useState(false)
     const [viewComment, setViewComment] = useState(false)
     
-    const [user,setUser] = useState<Tuser>()
+    const [user,setUser] = useState<[Tuser]>()
     const [listComment,setListComment]=useState<Icomment[]>([])
 
     function handleReplie() {
