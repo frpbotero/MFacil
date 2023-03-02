@@ -11,8 +11,6 @@ interface Irequest{
   params:string, 
   
   body:Iuser
-  
- 
 
 }
 
@@ -101,8 +99,11 @@ async function create(req:Irequest,res:Response){
 
   async function login(req:Irequest,res:Response){
     
+
+
       try {
             const { email, password:passBody } = req.body;
+            console.log(email)
 
             if (!email || !passBody) return res.status(400).json({ message: "Erro nos dados!" });
 

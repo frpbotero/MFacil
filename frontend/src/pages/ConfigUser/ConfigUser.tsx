@@ -1,6 +1,6 @@
 import * as S from "./styles"
 import user from "../../assets/user.svg"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
 import { Tuser } from "../../types/types"
 import { apiService } from "../../api/api"
@@ -24,45 +24,48 @@ import user17 from "../../assets/avatar/user17.png"
 import user18 from "../../assets/avatar/user18.png"
 import user19 from "../../assets/avatar/user19.png"
 import user20 from "../../assets/avatar/user20.png"
+import {getInfo} from "../../utils/getUserByKey"
+import { userInfo } from "../../utils/getUserByKey"
+
 
 const getdate:any = localStorage.getItem("user")
 
-// interface Iuser{
-//     profession?:string;
-//     dateNasc?:string;
-//     resume?:string;
-//     linkPortfolio?:string;
-//     email?:string;
-// }
-
-
-
 
 export function ConfigUser(){
-    const userLocal = JSON.parse(getdate)
+    const userLocal:any = JSON.parse(getdate)
 
-    const [profession,setProfession]=useState<string>("")
-    const [dateNasc,setDateNasc]= useState<string>("")
-    const [resume,setResume]=useState<string>("")
-    const [portfolio,setPortfolio]=useState<String>("")
-    const [avatar,setAvatar] = useState<String>("")
     
-
+    const [profession,setProfession]=useState<any>("")
+    const [dateNasc,setDateNasc]= useState<any>("")
+    const [resume,setResume]=useState<any>("")
+    const [portfolio,setPortfolio]=useState<any>("")
+    const [avatar,setAvatar] = useState<any>("")
+    
     const navigate = useNavigate()
-
 
     
     async function updateUser(event:any){
         event.preventDefault()
 
         const id = userLocal.id
-        const payload:Tuser={
-            avatar:avatar,
-            profession:profession,
-            dateNasc:dateNasc,
-            resume:resume,
-            linkPortfolio:portfolio
+        
+
+        const payload:Tuser={}
+        
+        if(avatar!=""){
+            payload.avatar=avatar
         }
+        if(resume!=""){
+            payload.resume=resume
+        }
+        if(portfolio!=""){
+            payload.linkPortfolio=portfolio
+        }
+        if(profession!=""){
+            payload.profession=profession
+        }
+         
+
         console.log(payload)
         const request = await apiService.user.updateURL(id,payload)
         // const data = await request.json()
@@ -78,6 +81,7 @@ export function ConfigUser(){
         navigate("/feed")
     }
 
+    
 
 
     return(
@@ -115,7 +119,7 @@ export function ConfigUser(){
                 </div>
             <S.Content>
                      <label htmlFor="profession">Profissão</label>
-                    <input type="text" id="profession" placeholder="Designer" value={profession} onChange={e=>setProfession(e.target.value)}/>
+                    <input type="text" id="profession" placeholder="Designer" onChange={e=>setProfession(e.target.value)}/>
                     
                     <label htmlFor="dateNasc">Data de nascimento</label>
                     <input type="date" id="dateNasc" onChange={e=>setDateNasc(e.target.value)}/>
