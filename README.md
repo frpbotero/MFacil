@@ -31,8 +31,11 @@
 
  <h2 id="layout">Layout</h2>
  <a href="https://ieasy.vercel.app/">Demo</a>
- <p>Foto do projeto</p>
+ 
    <img alt="Ieasy" src="https://github.com/FeBotero/MFacil/blob/main/assets/Home.png">
+   <img alt="Ieasy" src="https://github.com/FeBotero/MFacil/blob/main/assets/Config.png">
+   <img alt="Ieasy" src="https://github.com/FeBotero/MFacil/blob/main/assets/Feed.png">
+   <img alt="Ieasy" src="https://github.com/FeBotero/MFacil/blob/main/assets/Login.png">
 
 
 <h2 id="funcoes">Funcionalidades</h2>
