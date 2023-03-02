@@ -34,6 +34,7 @@ export function HeaderUser(){
 
     function logout(){
         localStorage.removeItem("user")
+        setFlag(!flag);
         navigate("/")
         window.location.href=window.location.href
         navigate("/")
@@ -41,6 +42,7 @@ export function HeaderUser(){
     }
     function configUser(){
         navigate("/handle")
+        setFlag(!flag);
         
     }
 
