@@ -1,0 +1,17 @@
+{
+    "plugins": ["styled"],
+    "rules": {
+      "styled/require-macro": [2,
+        {
+          "prop": "css",
+          "import": "styled-components/macro"
+        }
+      ],
+      "styled/unused-macro": [2,
+        {
+          "prop": "css",
+          "import": "styled-components/macro"
+        }
+      ]
+    }
+  }
